@@ -1,0 +1,275 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tracing the Routes</title>
+  		<link href="assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
+  		<script src="assets/js/vendor/modernizr.min.js"></script>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlVND7dIQEQeZAkdnWIy28YZuQ7QTggww&sensor=false">
+        </script>
+        <link rel="shortcut icon" href="/app/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/app/favicon.ico" type="image/x-icon">
+        <script src="assets/js/maps.min.js"></script>
+        <script src="assets/js/nav.min.js"></script>
+	</head>
+	<body>
+
+    <div id = "container">
+        <div id = "home">
+            <h4>Home: Where the Start Is</h4>
+            <p>This is a web app that will show you how data travels across the internet.</p>
+            <p>To do this, we'll be following the path of the Unix command:</p>
+            <blockquote>traceroute -I vk.com</blockquote>
+            <p>Throughout this app, you will see bold blue links. Click these to read more about the highlighted
+                concepts. You can click the red markers to progress through the app.</p>
+            <p>If you feel like you don't need any further information, and would like to get started right away,
+                please click the marker in the center of the screen (it's just above Brookline). Otherwise, please
+                <a href="#" data-reveal-id="startModal"><b>click here</b></a> to learn more about traceroute before
+                you start.</p>
+
+        </div>
+
+        <div id = "westroxbury">
+            <h4>West Roxbury</h4>
+                <p>
+                    Our traceroute originated in Brookline, so the first stop is the local Comcast hub in West Roxbury.
+                    Most consumer Internet Service Providers (ISPs) are Tier 2 providers. This generally means that they operate
+                    freely across their own network, but in order to reach other networks, they need to traverse
+                    infrastructure that they do not own. They do this by buying IP transit rights or via peering.
+                </p>
+                <p>
+                    Peering refers to the linking of separate networks together so that the users on one network can
+                    send traffic across another, and vice versa. This requires the physical exchange of connections via
+                    network switches (basically they have to plug in to a common port).
+                </p>
+        </div>
+
+        <div id = "needham">
+            <h4>Needham</h4>
+                <p>
+                    After West Roxbury, we end up in Needham. We're still on Comcast's network, because that's the
+                    consumer-facing option covering much of Massachusetts. At some point, however, we'll need to connect
+                    with a different kind of network, known as a Tier 1 ISP.
+                </p>
+                <p>
+                    Put simply, Tier 1 providers can send traffic to all areas of the Internet without paying for access
+                    because they own the most wires. They are the
+                    <a href="http://superuser.com/questions/399300/who-provides-the-internet-service-to-internet-service-providers-isps"
+                    target="_blank"><b>ISPs for ISPs</b></a>.
+                </p>
+        </div>
+
+        <div id = "nyc">
+            <h4>New York City</h4>
+                <p>
+                    Once they make it to New York, Comcast hands our packets off to Level 3, a Tier 1 ISP.
+                    Our packets make a few hops in New York, but we're most interested in one of the places it hits
+                    before heading across the Atlantic. 60 Hudson Street, in TriBeCa, is a huge facility that acts as
+                    the main hub for a huge amount of global internet traffic. From here, our packets will make their
+                    way to the fiber optic cable systems that will transport them across the Atlantic Ocean.
+                </p>
+                <p>
+                    Watch <a href="http://vimeo.com/30642376"><b>this video</b></a> to learn more about
+                    the physical nature of the Internet.
+                </p>
+        </div>
+
+        <div id = "tubes">
+            <h4>Somewhere in the Ocean</h4>
+            <p>
+                The
+                <a href="http://www.theiet.org/resources/library/archives/featured/trans-cable1858.cfm" target="_blank">
+                <b>first transatlantic cables</b></a> were laid in 1858 for telegraph. Now, our packets travel across
+                any one of a number of different submarine fiber optic cables. We don't have any way of knowing for sure
+                which specific cable our packets traverse, but we do know that Level 3 owns two main
+                transatlantic telecoms cables: Atlantic Crossing 1 (AC-1) and Atlantic Crossing 2 (AC-2). Both operate
+                between New York and the UK, while AC-2 also makes landfall in the Netherlands and Germany.
+            </p>
+
+            <p>
+                If you'd like a better sense of what the different transoceanic cable connections look like, here's a
+                <a href="http://www.cablemap.info/"target="_blank"><b>map</b></a>.
+            </p>
+        </div>
+
+        <div id = "london">
+            <h4>London</h4>
+            <p>
+                In London, the London Internet Exchange (LINX) is the UK counterpart to 60 Hudson Street. The response
+                time for our packets between here and this host is just 100-150 milliseconds, despite traveling across
+                thousands of miles of cable. Hundreds of gigabits per second pass through this exchange on their way
+                to locations across the world.
+            </p>
+            <p>
+                Despite the high throughput these exchanges can handle, they are vulnerable to unexpected spikes in web
+                traffic. Extreme spikes, such as
+                <a href="http://www.theverge.com/2013/3/28/4156570/Dutch-spamhaus-DDoS-took-down-london-internet-exchange"
+                target="_blank"><b>the one that occured in 2013</b></a> when hackers targeted anti-spam organization
+                Spamhaus with huge distributed denial of service attacks (DDoS), can cause slowness across multiple
+                regional networks.
+            </p>
+        </div>
+
+        <div id = "amsterdam">
+            <h4>Amsterdam</h4>
+            <p>
+                The Amsterdam Internet Exchange (AMS-IX) is one of the largest exchanges in the world. It acts as an
+                exchange point for traffic headed from all over the world to mainland Europe.
+            </p>
+            <p>
+                Unsurprisingly, the amount of global internet traffic is increasing rapidly. Equally unsurprisingly,
+                <a href="https://ams-ix.net/technical/statistics" target="_blank"><b>the amount of data</b></a>
+                passing through AMS-IX is also increasing steadily. While there have been concerns about the volume of
+                data overwhelming available infrastructure, thus far these concerns don't appear to be validated by the
+                <a href="http://www.dtc.umn.edu/mints/home.php" target="_blank"><b>research</b></a>.
+            </p>
+        </div>
+
+        <div id = "dusseldorf">
+            <h4>Dusseldorf</h4>
+            <p>
+                Our packets are still within the Level 3 network. In fact, they'll make it all the way to St. Petersburg
+                in the same infrastructure owned by the same company. For now, the various stakeholders in the global
+                internet exist in an uneasy peace, however the question of who owns and controls the internet will present
+                complex challenges in the near future.
+            </p>
+            <p>
+                Additionally, issues of censorship, <a href="http://www.fcc.gov/guides/open-internet" target="_blank">
+                <b>net neutrality</b></a>, and infrastructural challenges all play a role in the continuing expansion of
+                the Internet in our daily lives. We may, in some dystopic future, have to pay extra for access to sites or
+                services that exist on a different network. For now though, our packets can move on unabated.
+            </p>
+        </div>
+
+        <div id = "helsinki">
+            <h4>Helsinki</h4>
+            <p>
+                Helsinki is our packets' last port of call before Russia. There's nothing particularly special about
+                the internet exchange in Helsinki (apologies to the Finns), but I included this step so I could share
+                <a href="http://www.theguardian.com/world/2011/apr/06/georgian-woman-cuts-web-access" target="_blank">
+                <b>this story</b></a>
+                about an old woman breaking the internet in Armenia by digging a hole in Georgia.
+            </p>
+        </div>
+
+        <div id = "vk">
+            <h4>St. Petersburg</h4>
+            <p>
+                We've now reached vKontakte's servers in St. Petersburg. This completes the traceroute. To view what the
+                final output looks like, <a href="#" data-reveal-id="outputModal"><b>click here</b></a>. If you'd like
+                to learn more, you can start
+                <a href="http://www.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm" target="_blank">
+                <b>here</b></a>. Otherwise, you can
+                <a href="#" data-reveal-id="endModal"><b>click here</b></a> to see references and
+                credits for this app, or click on the button below to watch a helpful video that summarizes some of the
+                concepts covered.
+            </p>
+            <p>
+                If you'd like to see everything again, hit your browser's refresh button and
+                you can start over from the beginning.
+            </p>
+            <p><a href="#" data-reveal-id="videoModal" class="radius button">How Does the Internet Work?</a></p>
+        </div>
+
+    </div>
+
+    <div id="startModal" class="reveal-modal" data-reveal>
+        <h2>Traceroute, ICMPs, and You</h2>
+        <p>
+            <a href = "http://www.unix.com/man-page/linux/8/traceroute/" target="_blank"><b>Traceroute</b></a> (on Unix systems)
+            or tracert (Windows) is a tool designed to help analyze the travel path of data across the internet from the
+            originating machine to a target server. The command generates a series of packets
+            and sends them out across the network to the endpoint selected (usually a website). To get to the endpoint,
+            the packets must traverse a series of network nodes, or hosts. At each host, the packets echo information back
+            to the originating machine. This process repeats until the last set of packets reaches its final destination.
+        </p>
+        <p>
+            In this case, we're send ing an <a href = "http://tools.ietf.org/rfc/rfc1393.txt" target="_blank"><b>Internet
+            Control Messaging Packet (ICMP)</b></a> by using the -I flag in our command.
+            The exact science behind an ICMP packet is outside the scope of this application, but for our purposes,
+            it’s enough to understand that an ICMP packet contains the originating
+            <a href="http://tools.ietf.org/html/rfc791" target="_blank"><b>Internet Protocol (IP)</b></a>
+            address of the packet
+            and the destination address. These IP addresses allow each packet to reach its intended destination.
+            From a diagnostic perspective, the most important pieces of information are two timestamps; one set
+            when the packet is sent from the originating server, and one set when it hits a host.
+            Network professionals can use this data to determine if there are any specific nodes in
+            the network that are experiencing high latency. Normal people use traceroute to watch data hop across the
+            world, because it is cool.
+        </p>
+        <p>
+            Now that you have a general idea of what's involved, click the 'x' in the top corner of this box to close
+            it, and then click the marker above Brookline to start following the packets.
+        </p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="outputModal" class="reveal-modal" data-reveal>
+        <h2>Final Output</h2>
+        <p>
+            This is what you would see on your screen at the end of the traceroute. I've condensed the response and
+            obfuscated the IP addresses of the first few hops, because that seems like the prudent thing to do.
+        </p>
+        <blockquote>
+            $ traceroute -I vk.com <br/>
+            traceroute: Warning: vk.com has multiple addresses; using 87.240.131.120<br/>
+            traceroute to vk.com (87.240.131.120), 64 hops max, 72 byte packets<br/>
+            1  router (XXX.XXX.X.X)  1.446 ms  1.031 ms  1.132 ms<br/>
+            2  homeIP (XX.XXX.XX.XXX)  13.519 ms  12.369 ms  10.330 ms<br/>
+            3  te-0-1-0-1-sur01.westroxbury.ma.boston.comcast.net (68.87.152.73)  12.278 ms  16.318 ms  10.385 ms<br/>
+            7  vlan51.ebr1.newyork2.level3.net (4.69.138.222)  131.611 ms  128.282 ms  127.911 ms<br/>
+            8  ae-46-46.ebr1.newyork1.level3.net (4.69.201.41)  136.108 ms  126.660 ms  127.687 ms<br/>
+            9  ae-41-41.ebr2.london1.level3.net (4.69.137.65)  129.674 ms  130.476 ms<br/>
+            11  ae-21-21.ebr1.amsterdam1.level3.net (4.69.143.53)  133.932 ms  130.778 ms  127.909 ms<br/>
+            12  ae-45-45.ebr2.dusseldorf1.level3.net (4.69.143.198)  129.335 ms  128.219 ms  128.061 ms<br/>
+            13  ae-3-3.bar1.helsinki1.level3.net (4.69.202.142)  130.635 ms  127.754 ms  127.302 ms<br/>
+            18  srv120-131-240-87.vk.com (87.240.131.120)  141.623 ms  133.859 ms  137.032 ms<br/>
+        </blockquote>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="endModal" class="reveal-modal" data-reveal>
+        <h2>Caveats and Credits</h2>
+        <p>
+            This is a hacky site I put together for school. There are a few pretty major bugs right now (close this and
+            click the back button a few times and see what happens), so I make no promises about reliability. This site
+            (mostly) works best in Chrome, and it may not work in other browsers. A refresh fixes everything if you find
+            yourself stuck.
+        </p>
+        <p>
+            That said, this site uses Foundation 5, for the modals and some styles. If the map looks familiar, that's
+            because it comes straight from the Google Maps JavaScript API. Like everyone else who makes things on the
+            Internet, I spent copious amounts of time browsing StackOverflow to learn about things I needed to make this
+            work.
+        </p>
+        <p>
+            I'd like to thank my colleagues for their feedback during the draft process, especially Parker and Amanda,
+            as well as our instructor Tom Akbari. I'd also like to thank my Mom, because you should always thank your
+            mother for everything.
+        </p>
+        <p>
+
+        </p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="videoModal" class="reveal-modal medium" data-reveal>
+        <div class="flex-video">
+            <iframe width="480" height="260" src="//www.youtube.com/embed/ewrBalT_eBM" frameborder="0"></iframe>
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="map-canvas" />
+
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/foundation.min.js"></script>
+    <script>
+    $(document).foundation();
+    </script>
+
+	</body>
+</html>
